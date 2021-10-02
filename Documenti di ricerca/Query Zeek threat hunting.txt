@@ -1,3 +1,27 @@
+Identificazione connessioni lunghe
+
 capinfos -aeu <pcap file> --> Mostra il nome del file, la durata totale della cattura, il primo pacchetto catturato e l'ultimo
 
-cat conn.log | zeek-cut id.orig_h id.resp_h duration | sort -k 3 -rn | head --> 
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | sort -k 3 -rn | head --> Elenca le 10 connessioni singole con la durata maggiore in ordine decrescente
+
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | sort | grep -v '-' | data mash -g 1,2 sum 3 | sort -k 3 -rn | head --> elenca le 10 connessioni con il tempo di dialogo maggiore
+
+Identificare beacons in base alla lunghezza della connessione
+
+Identifichiamo quali IP interni si connettono ad IP esterni più frequentemente, concentrandoci in particolare su quelli che effettuano centinaia di connessioni al giorno.
+
+cat conn.log | zeek-cut id.orig_h id.resp_h | sort | uniq -c | sort -rn | head --> numero di connessioni al giorno
+
+cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes | grep ipOrigine | grep ipDestinazione | sort | uniq -c | sort -rn | head --> Comunica quantità di byte trasmessi
+
+A questo punto se si hanno dei dubbi usare questo comando per l'analisi del payload: ngrep -q -I trace1.pcap host ipOrigine and host ipDestinazione | less
+
+cat http.log | zeek-cut id.orig_h id.resp_h uri | grep ipDestinazione | sort | uniq -c | sort -rn --> Estrae URI, cioè la sequenza di caratteri che identifica univocamente una risorsa
+
+Presenza di C2 legata ai DNS
+
+Abbiamo bisogno di un modo per contare gli host all'interno di un dominio
+
+cat dns.log | zeek-cut query | sort | uniq | rev | cut -d . -f 1-2 | rev | sort | uniq -c | sort -rn | head --> Troviamo numero di host per ogni dominio
+
+cat dns.log | zeek-cut qtype_name query | grep dominioDiInteresse | cut -f 1 | sort | uniq -c | sort -rn --> Vediamo i tipi di record DNS legati al dominio preso in considerazione
