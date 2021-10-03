@@ -4,7 +4,7 @@ capinfos -aeu <pcap file> --> Mostra il nome del file, la durata totale della ca
 
 cat conn.log | zeek-cut id.orig_h id.resp_h duration | sort -k 3 -rn | head --> Elenca le 10 connessioni singole con la durata maggiore in ordine decrescente
 
-cat conn.log | zeek-cut id.orig_h id.resp_h duration | sort | grep -v '-' | data mash -g 1,2 sum 3 | sort -k 3 -rn | head --> elenca le 10 connessioni con il tempo di dialogo maggiore
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | sort | grep -v '-' | datamash -g 1,2 sum 3 | sort -k 3 -rn | head --> elenca le 10 connessioni con il tempo di dialogo maggiore
 
 Identificare beacons in base alla lunghezza della connessione
 
