@@ -153,7 +153,8 @@ case $OPTION in
         Otherwise you can terminate the tool and change the directory, in order to enable
         the script to create the \"Results\" directory.
         It is recommended to execute the tool in the folder 
-        that contains Zeek created the <filename>.log files.\n"
+        that contains Zeek created the <filename>.log files.
+        Executing this tool requires some packages installed: Zeek Suite and Datamash.\n"
         ;;
     *)
         echo -e "Invalid choice. Exiting..."
