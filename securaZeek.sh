@@ -133,7 +133,7 @@ case $OPTION in
         echo -e "\n${RED}$OPTION${NC} ${BLUE}DONE${NC}\n"
         ;;
     9)
-        cat dns.log | zeek-cut query | sort | uniq | rev | cut -d . -f 1-2 | rev | sort | uniq -c | sort -rn > NumberOfHost.txt
+        cat dns.log | zeek-cut query | sort | uniq | rev | cut -d . -f 1-2 | rev | sort | uniq -c | sort -rn > NumberOfHosts.txt
         mv NumberOfHosts.txt $DIR
         echo -e "\n${RED}$OPTION${NC} ${BLUE}DONE${NC}\n"
         ;;
