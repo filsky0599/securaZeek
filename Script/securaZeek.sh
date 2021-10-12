@@ -86,7 +86,7 @@ case $OPTION in
         echo -e "\n${RED}$OPTION${NC} ${BLUE}DONE${NC}\n"
         ;;
     2)
-        cat conn.log | zeek-cut id.orig_h id.resp_h duration | sort -k 3 -rn > LongestConnection.txt
+        cat conn.log | zeek-cut id.orig_h id.resp_h duration id.resp_p proto service | sort -k 3 -rn > LongestConnection.txt
         mv LongestConnection.txt $DIR
         echo -e "\n${RED}$OPTION${NC} ${BLUE}DONE${NC}\n"
         ;;
