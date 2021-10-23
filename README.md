@@ -12,6 +12,8 @@ La cartella `Script` contiene lo script bash usato per fare successive elaborazi
 
 `Eseguibile Mac` contiene l'appicazione compilata e l'eseguibile da terminale.
 
+`Eseguibile UNIX` contiene l'appicazione compilata e l'eseguibile da terminale.
+
 ## Istruzioni per l'esecuzione
 
 •Aprire la cartella `bin` all'interno di `Eseguibile Mac` nel terminale.
