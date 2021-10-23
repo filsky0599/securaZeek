@@ -15,4 +15,5 @@ La cartella `Script` contiene lo script bash usato per fare successive elaborazi
 ## Istruzioni per l'esecuzione
 
 •Aprire la cartella `bin` all'interno di `Eseguibile Mac` nel terminale.
+
 •Eseguire lo script `SecuraZeek.sh` tramite il comando `./SecuraZeek.sh`.
