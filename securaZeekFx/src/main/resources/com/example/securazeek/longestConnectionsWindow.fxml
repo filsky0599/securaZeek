@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="888.0" prefWidth="1823.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.securazeek.controller.LongestConnectionController">
+   <children>
+      <TableView fx:id="connectionsTable" layoutX="14.0" layoutY="13.0" prefHeight="861.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="sourceIp" prefWidth="100.0" text="Source IP" />
+          <TableColumn fx:id="destinationIp" prefWidth="100.0" text="Destination IP" />
+            <TableColumn fx:id="durationColumn" prefWidth="100.0" text="Duration" />
+            <TableColumn fx:id="portColumn" prefWidth="100.0" text="Port" />
+            <TableColumn fx:id="protocolColumn" prefWidth="100.0" text="Protocol" />
+            <TableColumn fx:id="serviceColumn" prefWidth="100.0" text="Service" />
+        </columns>
+      </TableView>
+      <Separator layoutX="617.0" layoutY="14.0" orientation="VERTICAL" prefHeight="861.0" prefWidth="11.0" />
+      <Button fx:id="loadFile" layoutX="1131.0" layoutY="13.0" mnemonicParsing="false" onKeyPressed="#loadFilePress" onMouseClicked="#loadFileClick" text="Load File" />
+      <Label layoutX="658.0" layoutY="16.0" prefHeight="18.0" prefWidth="197.0" text="Number of Connections loaded:" />
+      <TextField fx:id="displayNumberOfConnections" editable="false" layoutX="855.0" layoutY="13.0" prefHeight="25.0" prefWidth="73.0" />
+      <Label fx:id="loadFileError" layoutX="937.0" layoutY="17.0" prefHeight="17.0" prefWidth="157.0" textFill="#eb0707" visible="false" />
+      <Button fx:id="displayTable" disable="true" layoutX="1141.0" layoutY="91.0" mnemonicParsing="false" onKeyPressed="#displayPressed" onMouseClicked="#displayClick" text="Display" />
+      <Label layoutX="658.0" layoutY="95.0" text="Number of connections visualized: " />
+      <Separator layoutX="658.0" layoutY="64.0" prefHeight="3.0" prefWidth="548.0" />
+      <Separator layoutX="658.0" layoutY="140.0" prefHeight="3.0" prefWidth="548.0" />
+      <TextField fx:id="connectionsToDisplay" layoutX="873.0" layoutY="91.0" prefHeight="25.0" prefWidth="138.0" />
+      <Label layoutX="658.0" layoutY="168.0" text="Source IP:" />
+      <Label layoutX="658.0" layoutY="211.0" text="Destination IP:" />
+      <TextField fx:id="sourceIpText" layoutX="720.0" layoutY="164.0" prefHeight="25.0" prefWidth="186.0" />
+      <TextField fx:id="destinationIpText" layoutX="747.0" layoutY="207.0" prefHeight="25.0" prefWidth="186.0" />
+      <Button fx:id="displayByIp" disable="true" layoutX="1107.0" layoutY="185.0" mnemonicParsing="false" onKeyPressed="#displayIpPress" onMouseClicked="#displayIpClick" text="Display by IP" />
+      <Separator layoutX="657.0" layoutY="256.0" prefHeight="3.0" prefWidth="548.0" />
+      <Label layoutX="657.0" layoutY="282.0" text="Duration time:" />
+      <Button fx:id="displayByDuration" disable="true" layoutX="1069.0" layoutY="279.0" mnemonicParsing="false" onKeyPressed="#displayDurationPress" onMouseClicked="#displayDurationClick" text="Display by duration" />
+      <Separator layoutX="658.0" layoutY="328.0" prefHeight="3.0" prefWidth="548.0" />
+      <TextField fx:id="durationSetter" layoutX="745.0" layoutY="278.0" prefHeight="25.0" prefWidth="168.0" />
+      <Label layoutX="657.0" layoutY="354.0" text="Port:" />
+      <TextField fx:id="portSetter" layoutX="686.0" layoutY="350.0" prefHeight="25.0" prefWidth="53.0" />
+      <Button fx:id="displayByPort" disable="true" layoutX="753.0" layoutY="350.0" mnemonicParsing="false" onKeyPressed="#displayPortPress" onMouseClicked="#displayPortClick" text="Display by port" />
+      <Separator layoutX="873.0" layoutY="350.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="11.0" />
+      <Label layoutX="885.0" layoutY="354.0" text="Protocol:" />
+      <TextField fx:id="protocolSetter" layoutX="942.0" layoutY="350.0" prefHeight="25.0" prefWidth="53.0" />
+      <Button fx:id="displayByProtocol" disable="true" layoutX="1046.0" layoutY="350.0" mnemonicParsing="false" onKeyPressed="#displayProtocolPress" onMouseClicked="#displayProtocolClick" text="Display by protocol" />
+      <Label layoutX="654.0" layoutY="396.0" text="Service:" />
+      <TextField fx:id="serviceSetter" layoutX="703.0" layoutY="392.0" prefHeight="25.0" prefWidth="53.0" />
+      <Button fx:id="displayByService" disable="true" layoutX="764.0" layoutY="392.0" mnemonicParsing="false" onKeyPressed="#displayServicePress" onMouseClicked="#displayServiceClick" text="Display by service" />
+      <TextArea fx:id="informationTextArea" editable="false" layoutX="1261.0" layoutY="766.0" prefHeight="108.0" prefWidth="548.0" promptText="Load the file to display some extra information." />
+      <Separator layoutX="1232.0" layoutY="17.0" orientation="VERTICAL" prefHeight="861.0" prefWidth="11.0" />
+      <PieChart fx:id="portsPlot" layoutX="1261.0" layoutY="16.0" prefHeight="343.0" prefWidth="500.0" title="Number of ports" />
+      <PieChart fx:id="protocolPlots" layoutX="1261.0" layoutY="398.0" prefHeight="342.0" prefWidth="500.0" title="Number of protocols" />
+      <PieChart fx:id="servicePlots" layoutX="678.0" layoutY="451.0" prefHeight="421.0" prefWidth="500.0" title="Number of services" />
+      <Label fx:id="graphInformationLabelService" layoutX="725.0" layoutY="637.0" opacity="0.28" prefHeight="29.0" prefWidth="415.0" text="Graph not available. Please load file">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="graphInformationLabelPort" layoutX="1328.0" layoutY="177.0" opacity="0.28" prefHeight="29.0" prefWidth="415.0" text="Graph not available. Please load file">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="graphInformationLabelProtocol" layoutX="1328.0" layoutY="569.0" opacity="0.28" prefHeight="29.0" prefWidth="415.0" text="Graph not available. Please load file">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="reverseDurationFilter" disable="true" layoutX="931.0" layoutY="283.0" mnemonicParsing="false" text="Reverse filter" />
+      <CheckBox fx:id="reversePortProtoServiceFilter" disable="true" layoutX="1061.0" layoutY="396.0" mnemonicParsing="false" text="Reverse filter" />
+      <CheckBox fx:id="reverseDisplayIpFilter" disable="true" layoutX="993.0" layoutY="189.0" mnemonicParsing="false" text="Reverse filter" />
+   </children>
+</Pane>
