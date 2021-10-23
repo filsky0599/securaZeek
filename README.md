@@ -10,9 +10,9 @@ La cartella `Script` contiene lo script bash usato per fare successive elaborazi
 
 `SecuraZeekFxv` contiene il codice sorgente dell'applicazione scritta in Java 17 e JavaFx.
 
-`Eseguibile Mac` contiene l'appicazione compilata e l'eseguibile da terminale.
+`Eseguibile Mac` contiene l'appicazione compilata e lo scipt per lanciare l'eseguibile da terminale.
 
-`Eseguibile UNIX` contiene l'appicazione compilata e l'eseguibile da terminale.
+`Eseguibile UNIX` contiene l'appicazione compilata e lo scipt per lanciare l'eseguibile da terminale.
 
 ## Istruzioni per l'esecuzione
 
