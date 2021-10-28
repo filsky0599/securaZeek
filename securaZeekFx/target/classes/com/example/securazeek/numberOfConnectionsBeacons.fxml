@@ -21,7 +21,7 @@
       <TableView fx:id="connectionsTable" layoutX="14.0" layoutY="14.0" prefHeight="749.0" prefWidth="489.0">
         <columns>
           <TableColumn fx:id="numberConnectionsColumn" prefWidth="163.0" text="Number Of Connections" />
-          <TableColumn fx:id="sourceIPColumn" prefWidth="163.0" text="Source IP" />
+          <TableColumn fx:id="sourceIpColumn" prefWidth="163.0" text="Source IP" />
             <TableColumn fx:id="destinationIPColumn" prefWidth="163.0" text="Destination IP" />
         </columns>
       </TableView>

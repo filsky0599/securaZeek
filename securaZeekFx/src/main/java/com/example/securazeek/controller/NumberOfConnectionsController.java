@@ -53,7 +53,7 @@ public class NumberOfConnectionsController {
     private TableColumn<ObjNumberOfConnections, Integer> numberConnectionsColumn;
 
     @FXML
-    private TableColumn<ObjNumberOfConnections, String> sourceIPColumn;
+    private TableColumn<ObjNumberOfConnections, String> sourceIpColumn;
 
     @FXML
     private PieChart sourceIpChart;
@@ -187,7 +187,7 @@ public class NumberOfConnectionsController {
     private void initializeTable() {
         connectionsTable.getItems().clear();
         numberConnectionsColumn.setCellValueFactory(new PropertyValueFactory<>("numberOfConnections"));
-        sourceIPColumn.setCellValueFactory(new PropertyValueFactory<>("sourceIp"));
+        sourceIpColumn.setCellValueFactory(new PropertyValueFactory<>("sourceIp"));
         destinationIPColumn.setCellValueFactory(new PropertyValueFactory<>("destinationIp"));
     }
 

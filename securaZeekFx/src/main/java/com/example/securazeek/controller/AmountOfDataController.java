@@ -37,7 +37,7 @@ public class AmountOfDataController {
     private TableColumn<ObjAmountOfData, Integer> numberConnectionsColumn;
 
     @FXML
-    private TableColumn<ObjAmountOfData, String> sourceIPColumn;
+    private TableColumn<ObjAmountOfData, String> sourceIpColumn;
 
     @FXML
     private TableColumn<ObjAmountOfData, String> destinationIpColumn;
@@ -219,7 +219,7 @@ public class AmountOfDataController {
     private void initializeTable() {
         connectionsTable.getItems().clear();
         numberConnectionsColumn.setCellValueFactory(new PropertyValueFactory<>("numberOfConnections"));
-        sourceIPColumn.setCellValueFactory(new PropertyValueFactory<>("sourceIp"));
+        sourceIpColumn.setCellValueFactory(new PropertyValueFactory<>("sourceIp"));
         destinationIpColumn.setCellValueFactory(new PropertyValueFactory<>("destinationIp"));
         amountDataColumn.setCellValueFactory(new PropertyValueFactory<>("amountOfData"));
     }
