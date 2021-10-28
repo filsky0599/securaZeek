@@ -27,7 +27,7 @@ public class LoadNumberOfConnections extends AbsLoadInputFile {
             while ((line = br.readLine()) != null){
                 StringTokenizer st = new StringTokenizer(line, " \t");
 
-                Integer number = Integer.parseInt(st.nextToken());
+                int number = Integer.parseInt(st.nextToken());
                 String sourceIP = st.nextToken();
                 String destIP = st.nextToken();
 

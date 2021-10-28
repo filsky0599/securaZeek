@@ -30,7 +30,7 @@ public class LoadAbsLongestConnection extends AbsLoadInputFile {
 
                 String sourceIP = st.nextToken();
                 String destIP = st.nextToken();
-                Double time = Double.parseDouble(st.nextToken());
+                double time = Double.parseDouble(st.nextToken());
 
                 objAbsLongestConnections.add(new ObjAbsLongestConnection(sourceIP, destIP, time));
             }

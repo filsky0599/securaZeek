@@ -28,7 +28,7 @@ public class LoadNumberOfHosts extends AbsLoadInputFile {
             while ((line = br.readLine()) != null){
                 StringTokenizer st = new StringTokenizer(line, " ");
 
-                Integer number = Integer.parseInt(st.nextToken());
+                int number = Integer.parseInt(st.nextToken());
                 String host = st.nextToken();
 
                 objNumberOfHosts.add(new ObjNumberOfHosts(number, host));

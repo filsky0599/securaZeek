@@ -41,7 +41,7 @@ public class LoadLongestConnection extends AbsLoadInputFile {
 
                 int port = Integer.parseInt(st.nextToken());
 
-                String protocol = "";
+                String protocol;
                 String checkProto = st.nextToken();
                 if(checkProto.equals("-")){
                     protocol = "Not Found";
