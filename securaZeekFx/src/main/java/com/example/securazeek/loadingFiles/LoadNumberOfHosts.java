@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class LoadNumberOfHosts extends AbstractLoadInputFile{
+public class LoadNumberOfHosts extends AbsLoadInputFile {
 
     private List<ObjNumberOfHosts> objNumberOfHosts;
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class LoadLongestConnection extends AbstractLoadInputFile{
+public class LoadLongestConnection extends AbsLoadInputFile {
 
     private List<ObjLongestConnection> objLongestConnection;
 

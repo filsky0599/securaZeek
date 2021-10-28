@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class LoadFileInformation extends AbstractLoadInputFile{
+public class LoadFileInformation extends AbsLoadInputFile {
 
     private String fileText;
 

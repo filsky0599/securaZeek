@@ -1,10 +1,10 @@
 package com.example.securazeek.loadingFiles;
 
-public abstract class AbstractLoadInputFile implements LoadInputFiles{
+public abstract class AbsLoadInputFile implements LoadInputFiles{
 
     private String filePath;
 
-    public AbstractLoadInputFile() {
+    public AbsLoadInputFile() {
         this.filePath = "";
     }
 

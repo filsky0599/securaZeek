@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class LoadAmountOfData extends AbstractLoadInputFile{
+public class LoadAmountOfData extends AbsLoadInputFile {
 
     private List<ObjAmountOfData> objAmountOfData;
 

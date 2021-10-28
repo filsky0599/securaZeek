@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class LoadNumberOfConnections extends AbstractLoadInputFile{
+public class LoadNumberOfConnections extends AbsLoadInputFile {
 
     private List<ObjNumberOfConnections> objNumberOfConnections;
 
