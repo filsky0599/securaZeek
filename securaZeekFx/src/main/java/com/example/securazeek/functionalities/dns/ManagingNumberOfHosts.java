@@ -1,7 +1,8 @@
-package com.example.securazeek.functionalities;
+package com.example.securazeek.functionalities.dns;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.functionalities.fileInformation.LoadingFile;
 import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
 import com.example.securazeek.objConnection.ObjNumberOfHosts;
 import javafx.collections.FXCollections;
@@ -11,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ManagingNumberOfHosts implements Functionalities{
+public class ManagingNumberOfHosts implements Dns {
 
     private LoadNumberOfHosts loadNumberOfHosts;
     private ObservableList<ObjNumberOfHosts> obsListDisplay;
@@ -33,12 +34,14 @@ public class ManagingNumberOfHosts implements Functionalities{
         loadNumberOfHosts.loadFile();
     }
 
+    @Override
     public void displayAllHosts(int hostsDisplayed) {
         for(int x = 0; x < hostsDisplayed; x++){
             obsListDisplay.add(loadNumberOfHosts.getObjNumberOfHosts().get(x));
         }
     }
 
+    @Override
     public void displayByHostNumber(int varNumberHosts, boolean filterStatus) throws NotValidInsertion {
         if(varNumberHosts > 0 && filterStatus){
             for (int x = 0; x < loadNumberOfHosts.getObjNumberOfHosts().size(); x++){
@@ -58,6 +61,7 @@ public class ManagingNumberOfHosts implements Functionalities{
         }
     }
 
+    @Override
     public void displayByHosts(String varHosts, boolean filterStatus){
         if(filterStatus){
             for(int x = 0; x < loadNumberOfHosts.getObjNumberOfHosts().size(); x++){

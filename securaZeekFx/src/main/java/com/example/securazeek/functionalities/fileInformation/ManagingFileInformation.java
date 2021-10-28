@@ -1,11 +1,12 @@
-package com.example.securazeek.functionalities;
+package com.example.securazeek.functionalities.fileInformation;
 
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.functionalities.fileInformation.LoadingFile;
 import com.example.securazeek.loadingFiles.LoadFileInformation;
 
 import java.io.FileNotFoundException;
 
-public class ManagingFileInformation {
+public class ManagingFileInformation implements LoadingFile {
 
     private LoadFileInformation loadFileInformation;
 
@@ -13,13 +14,13 @@ public class ManagingFileInformation {
         this.loadFileInformation = loadFileInformation;
     }
 
-    public void loadFile(String path) throws FileNotFoundException, ReadFileException {
+    @Override
+    public void openFile(String path) throws FileNotFoundException, ReadFileException {
         loadFileInformation.setFilePath(path);
         loadFileInformation.loadFile();
     }
 
     public String printFile(){
-        String fileText = loadFileInformation.getFileText();
-        return fileText;
+        return loadFileInformation.getFileText();
     }
 }

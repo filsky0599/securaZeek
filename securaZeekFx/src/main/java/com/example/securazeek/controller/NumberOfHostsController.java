@@ -3,7 +3,7 @@ package com.example.securazeek.controller;
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.WrongFileChosen;
-import com.example.securazeek.functionalities.ManagingNumberOfHosts;
+import com.example.securazeek.functionalities.dns.ManagingNumberOfHosts;
 import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
 import com.example.securazeek.objConnection.ObjNumberOfHosts;
 import javafx.collections.FXCollections;

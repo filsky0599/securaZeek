@@ -2,7 +2,7 @@ package com.example.securazeek.controller;
 
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.WrongFileChosen;
-import com.example.securazeek.functionalities.ManagingFileInformation;
+import com.example.securazeek.functionalities.fileInformation.ManagingFileInformation;
 import com.example.securazeek.loadingFiles.LoadFileInformation;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
