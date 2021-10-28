@@ -2,7 +2,6 @@ package com.example.securazeek.functionalities.dns;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
-import com.example.securazeek.functionalities.fileInformation.LoadingFile;
 import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
 import com.example.securazeek.objConnection.ObjNumberOfHosts;
 import javafx.collections.FXCollections;

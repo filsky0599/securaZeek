@@ -28,6 +28,8 @@ public class FileInformationController {
             if (file != null && file.getName().equals("FileInformation.txt")){
                 path = file.getAbsolutePath();
             }else {
+                fileInformationPrint.clear();
+                fileInformationPrint.setText("The selected file is not correct. Please retry.");
                 throw new WrongFileChosen();
             }
 
@@ -35,7 +37,7 @@ public class FileInformationController {
             ManagingFileInformation managingFileInformation = new ManagingFileInformation(loadFileInformation);
             managingFileInformation.openFile(path);
             fileInformationPrint.clear();
-            fileInformationPrint.appendText(managingFileInformation.printFile());
+            fileInformationPrint.setText(managingFileInformation.printFile());
         }
     }
 
