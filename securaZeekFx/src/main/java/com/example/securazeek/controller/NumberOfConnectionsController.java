@@ -4,7 +4,7 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
-import com.example.securazeek.functionalities.ManagingNumberOfConnections;
+import com.example.securazeek.functionalities.beacons.ManagingNumberOfConnections;
 import com.example.securazeek.loadingFiles.LoadNumberOfConnections;
 import com.example.securazeek.objConnection.ObjNumberOfConnections;
 import javafx.collections.FXCollections;

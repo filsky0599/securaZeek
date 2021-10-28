@@ -1,4 +1,4 @@
-package com.example.securazeek.functionalities;
+package com.example.securazeek.functionalities.beacons;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ManagingAmountOfData implements Functionalities{
+public class ManagingAmountOfData implements Beacons {
 
     private LoadAmountOfData loadAmountOfData;
     private ObservableList<ObjAmountOfData> obsListDisplay;
@@ -37,12 +37,14 @@ public class ManagingAmountOfData implements Functionalities{
         loadAmountOfData.loadFile();
     }
 
+    @Override
     public void displayAllConnections(int connectionsDisplayed) {
         for(int x = 0; x < connectionsDisplayed; x++){
             obsListDisplay.add(loadAmountOfData.getObjAmountOfData().get(x));
         }
     }
 
+    @Override
     public void displayConnectionsByIp(String varSourceIp, String varDestIp) {
         if(varDestIp.isEmpty()){
             for(int x = 0; x < loadAmountOfData.getObjAmountOfData().size(); x++){
@@ -64,6 +66,8 @@ public class ManagingAmountOfData implements Functionalities{
             }
         }
     }
+
+    @Override
     public void displayConnectionsByIpReverse(String varSourceIp, String varDestIp){
         if(varDestIp.isEmpty()){
             for(int x = 0; x < loadAmountOfData.getObjAmountOfData().size(); x++){
@@ -86,6 +90,7 @@ public class ManagingAmountOfData implements Functionalities{
         }
     }
 
+    @Override
     public void displayConnectionsByNumber(int varNumberOfConnections, boolean filterStatus) throws NotValidInsertion {
         if(varNumberOfConnections > 0 && filterStatus){
             for(int x = 0; x < loadAmountOfData.getObjAmountOfData().size(); x++){

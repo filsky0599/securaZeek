@@ -1,4 +1,4 @@
-package com.example.securazeek.functionalities;
+package com.example.securazeek.functionalities.beacons;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ManagingNumberOfConnections implements Functionalities{
+public class ManagingNumberOfConnections implements Beacons {
 
     private LoadNumberOfConnections loadNumberOfConnections;
     private ObservableList<ObjNumberOfConnections> obsListDisplay;
@@ -34,6 +34,7 @@ public class ManagingNumberOfConnections implements Functionalities{
         loadNumberOfConnections.loadFile();
     }
 
+    @Override
     public void displayAllConnections(int connectionsDisplayed) throws TooManyConnections {
         if(connectionsDisplayed > loadNumberOfConnections.getObjNumberOfConnections().size()){
             throw new TooManyConnections();
@@ -44,6 +45,7 @@ public class ManagingNumberOfConnections implements Functionalities{
         }
     }
 
+    @Override
     public void displayConnectionsByIp(String varSourceIp, String varDestIp) {
         if(varDestIp.isEmpty()){
             for(int x = 0; x < loadNumberOfConnections.getObjNumberOfConnections().size(); x++){
@@ -66,6 +68,7 @@ public class ManagingNumberOfConnections implements Functionalities{
         }
     }
 
+    @Override
     public void displayConnectionsByIpReverse(String varSourceIp, String varDestIp){
         if(varDestIp.isEmpty()){
             for(int x = 0; x < loadNumberOfConnections.getObjNumberOfConnections().size(); x++){
@@ -88,6 +91,7 @@ public class ManagingNumberOfConnections implements Functionalities{
         }
     }
 
+    @Override
     public void displayConnectionsByNumber(int varNumberOfConnections, boolean filterStatus) throws NotValidInsertion {
         if(varNumberOfConnections > 0 && filterStatus){
             for(int x = 0; x < loadNumberOfConnections.getObjNumberOfConnections().size(); x++){

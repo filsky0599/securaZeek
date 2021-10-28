@@ -3,7 +3,7 @@ package com.example.securazeek.controller;
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.WrongFileChosen;
-import com.example.securazeek.functionalities.ManagingAmountOfData;
+import com.example.securazeek.functionalities.beacons.ManagingAmountOfData;
 import com.example.securazeek.loadingFiles.LoadAmountOfData;
 import com.example.securazeek.objConnection.ObjAmountOfData;
 import javafx.collections.FXCollections;
