@@ -21,7 +21,7 @@ public class FileInformationController {
     @FXML
     void printValue(KeyEvent event) throws FileNotFoundException, ReadFileException, WrongFileChosen {
         if(event.getCode() == KeyCode.ENTER){
-            String path = "";
+            String path;
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("FileInformation file", "*.txt"));
             File file = fileChooser.showOpenDialog(null);
@@ -33,7 +33,7 @@ public class FileInformationController {
 
             LoadFileInformation loadFileInformation = new LoadFileInformation();
             ManagingFileInformation managingFileInformation = new ManagingFileInformation(loadFileInformation);
-            managingFileInformation.loadFile(path);
+            managingFileInformation.openFile(path);
             fileInformationPrint.clear();
             fileInformationPrint.appendText(managingFileInformation.printFile());
         }
