@@ -5,7 +5,6 @@ import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.beacons.ManagingNumberOfConnections;
-import com.example.securazeek.loadingFiles.LoadNumberOfConnections;
 import com.example.securazeek.objConnection.ObjNumberOfConnections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,7 +24,6 @@ import java.io.FileNotFoundException;
 
 public class NumberOfConnectionsController {
 
-    private LoadNumberOfConnections loadNumberOfConnections;
     private ManagingNumberOfConnections managingNumberOfConnections;
 
     @FXML
@@ -83,8 +81,7 @@ public class NumberOfConnectionsController {
     private CheckBox reverseDisplayIpFilter;
 
     public NumberOfConnectionsController() {
-        this.loadNumberOfConnections = new LoadNumberOfConnections();
-        this.managingNumberOfConnections = new ManagingNumberOfConnections(loadNumberOfConnections);
+        this.managingNumberOfConnections = new ManagingNumberOfConnections();
     }
 
     @FXML
@@ -219,8 +216,8 @@ public class NumberOfConnectionsController {
         }
 
         managingNumberOfConnections.openFile(path);
-        int numberOfConnections = loadNumberOfConnections.getObjNumberOfConnections().size();
+        int numberOfConnections = managingNumberOfConnections.getLoadNumberOfConnections().getObjNumberOfConnections().size();
         displayNumberOfConnections.setText(String.valueOf(numberOfConnections));
-        numberToDisplay.setMax(loadNumberOfConnections.getObjNumberOfConnections().size());
+        numberToDisplay.setMax(managingNumberOfConnections.getLoadNumberOfConnections().getObjNumberOfConnections().size());
     }
 }

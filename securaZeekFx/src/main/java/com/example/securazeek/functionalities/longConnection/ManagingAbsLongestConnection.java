@@ -19,8 +19,8 @@ public class ManagingAbsLongestConnection implements LongConnection{
     private ObservableList<ObjAbsLongestConnection> obsListDuration;
     private Map<String, Integer> countConnections;
 
-    public ManagingAbsLongestConnection(LoadAbsLongestConnection loadAbsLongestConnection) {
-        this.loadAbsLongestConnection = loadAbsLongestConnection;
+    public ManagingAbsLongestConnection() {
+        loadAbsLongestConnection = new LoadAbsLongestConnection();
         obsList = FXCollections.observableArrayList();
         obsListByIp = FXCollections.observableArrayList();
         obsListDuration = FXCollections.observableArrayList();
@@ -120,6 +120,10 @@ public class ManagingAbsLongestConnection implements LongConnection{
             Integer count = countConnections.get(l.getSourceIp());
             countConnections.put(l.getSourceIp(), (count == null) ? 1 : count + 1);
         }
+    }
+
+    public LoadAbsLongestConnection getLoadAbsLongestConnection() {
+        return loadAbsLongestConnection;
     }
 
     public ObservableList<ObjAbsLongestConnection> getObsList() {

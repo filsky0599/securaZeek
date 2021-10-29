@@ -3,7 +3,6 @@ package com.example.securazeek.controller;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.fileInformation.ManagingFileInformation;
-import com.example.securazeek.loadingFiles.LoadFileInformation;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
@@ -33,8 +32,7 @@ public class FileInformationController {
                 throw new WrongFileChosen();
             }
 
-            LoadFileInformation loadFileInformation = new LoadFileInformation();
-            ManagingFileInformation managingFileInformation = new ManagingFileInformation(loadFileInformation);
+            ManagingFileInformation managingFileInformation = new ManagingFileInformation();
             managingFileInformation.openFile(path);
             fileInformationPrint.clear();
             fileInformationPrint.setText(managingFileInformation.printFile());

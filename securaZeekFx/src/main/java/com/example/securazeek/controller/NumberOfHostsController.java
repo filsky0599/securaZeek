@@ -4,7 +4,6 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.dns.ManagingNumberOfHosts;
-import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
 import com.example.securazeek.objConnection.ObjNumberOfHosts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +23,6 @@ import java.io.FileNotFoundException;
 
 public class NumberOfHostsController {
 
-    private LoadNumberOfHosts loadNumberOfHosts;
     private ManagingNumberOfHosts managingNumberOfHosts;
 
     @FXML
@@ -73,8 +71,7 @@ public class NumberOfHostsController {
     private CheckBox reverseNumberHostNameFilter;
 
     public NumberOfHostsController() {
-        this.loadNumberOfHosts = new LoadNumberOfHosts();
-        this.managingNumberOfHosts = new ManagingNumberOfHosts(loadNumberOfHosts);
+        this.managingNumberOfHosts = new ManagingNumberOfHosts();
     }
 
     @FXML
@@ -194,9 +191,9 @@ public class NumberOfHostsController {
 
         managingNumberOfHosts.openFile(path);
 
-        int numberOfConnections = loadNumberOfHosts.getObjNumberOfHosts().size();
+        int numberOfConnections = managingNumberOfHosts.getLoadNumberOfHosts().getObjNumberOfHosts().size();
         displayNumberOfHosts.setText(String.valueOf(numberOfConnections));
-        numberToDisplay.setMax(loadNumberOfHosts.getObjNumberOfHosts().size());
+        numberToDisplay.setMax(managingNumberOfHosts.getLoadNumberOfHosts().getObjNumberOfHosts().size());
     }
 
     private void setUpChart(){

@@ -5,7 +5,6 @@ import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.objConnection.ObjAbsLongestConnection;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.functionalities.longConnection.ManagingAbsLongestConnection;
-import com.example.securazeek.loadingFiles.LoadAbsLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,7 +23,6 @@ import java.io.FileNotFoundException;
 
 public class AbsConnectionController {
 
-    private LoadAbsLongestConnection loadAbsLongestConnection;
     private ManagingAbsLongestConnection managingAbsLongestConnection;
 
     @FXML
@@ -85,8 +83,7 @@ public class AbsConnectionController {
     private CheckBox reverseDisplayIpFilter;
 
     public AbsConnectionController() {
-        this.loadAbsLongestConnection = new LoadAbsLongestConnection();
-        this.managingAbsLongestConnection = new ManagingAbsLongestConnection(loadAbsLongestConnection);
+        this.managingAbsLongestConnection = new ManagingAbsLongestConnection();
     }
 
     @FXML
@@ -208,9 +205,9 @@ public class AbsConnectionController {
 
         managingAbsLongestConnection.openFile(path);
 
-        int numberOfConnections = loadAbsLongestConnection.getObjAbsLongestConnections().size();
+        int numberOfConnections = managingAbsLongestConnection.getLoadAbsLongestConnection().getObjAbsLongestConnections().size();
         displayNumberOfConnections.setText(String.valueOf(numberOfConnections));
-        numberToDisplay.setMax(loadAbsLongestConnection.getObjAbsLongestConnections().size());
+        numberToDisplay.setMax(managingAbsLongestConnection.getLoadAbsLongestConnection().getObjAbsLongestConnections().size());
     }
 
     private void unlockButtons(){

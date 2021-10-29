@@ -20,8 +20,8 @@ public class ManagingNumberOfConnections implements Beacons {
     private ObservableList<ObjNumberOfConnections> obsListByNumberConnections;
     private Map<String, Integer> countIpMap;
 
-    public ManagingNumberOfConnections(LoadNumberOfConnections loadNumberOfConnections) {
-        this.loadNumberOfConnections = loadNumberOfConnections;
+    public ManagingNumberOfConnections() {
+        loadNumberOfConnections = new LoadNumberOfConnections();
         obsListDisplay = FXCollections.observableArrayList();
         obsListByIP = FXCollections.observableArrayList();
         obsListByNumberConnections = FXCollections.observableArrayList();
@@ -115,6 +115,10 @@ public class ManagingNumberOfConnections implements Beacons {
             Integer count = countIpMap.get(l.getSourceIp());
             countIpMap.put(l.getSourceIp(), (count == null) ? 1 : count + 1);
         }
+    }
+
+    public LoadNumberOfConnections getLoadNumberOfConnections() {
+        return loadNumberOfConnections;
     }
 
     public ObservableList<ObjNumberOfConnections> getObsListDisplay() {

@@ -5,7 +5,6 @@ import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.longConnection.ManagingLongConnection;
-import com.example.securazeek.loadingFiles.LoadLongestConnection;
 import com.example.securazeek.objConnection.ObjLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +23,6 @@ import java.io.FileNotFoundException;
 
 public class LongestConnectionController {
 
-    private LoadLongestConnection loadLongestConnection;
     private ManagingLongConnection managingLongConnection;
 
     @FXML
@@ -127,8 +125,7 @@ public class LongestConnectionController {
     private CheckBox reverseDisplayIpFilter;
 
     public LongestConnectionController() {
-        this.loadLongestConnection = new LoadLongestConnection();
-        this.managingLongConnection = new ManagingLongConnection(loadLongestConnection);
+        this.managingLongConnection = new ManagingLongConnection();
     }
 
     @FXML
@@ -273,7 +270,7 @@ public class LongestConnectionController {
         }
 
         managingLongConnection.openFile(path);
-        int numberOfConnections = loadLongestConnection.getObjLongestConnection().size();
+        int numberOfConnections = managingLongConnection.getLoadLongestConnection().getObjLongestConnection().size();
         displayNumberOfConnections.setText(String.valueOf(numberOfConnections));
     }
 

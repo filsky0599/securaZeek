@@ -4,7 +4,6 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.beacons.ManagingAmountOfData;
-import com.example.securazeek.loadingFiles.LoadAmountOfData;
 import com.example.securazeek.objConnection.ObjAmountOfData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +23,6 @@ import java.io.FileNotFoundException;
 
 public class AmountOfDataController {
 
-    private LoadAmountOfData loadAmountOfData;
     private ManagingAmountOfData managingAmountOfData;
 
     @FXML
@@ -97,8 +95,7 @@ public class AmountOfDataController {
     private CheckBox reverseDisplayIpFilter;
 
     public AmountOfDataController() {
-        this.loadAmountOfData = new LoadAmountOfData();
-        this.managingAmountOfData = new ManagingAmountOfData(loadAmountOfData);
+        this.managingAmountOfData = new ManagingAmountOfData();
     }
 
     @FXML
@@ -255,9 +252,9 @@ public class AmountOfDataController {
 
         managingAmountOfData.openFile(path);
 
-        int numberOfConnections = loadAmountOfData.getObjAmountOfData().size();
+        int numberOfConnections = managingAmountOfData.getLoadAmountOfData().getObjAmountOfData().size();
         displayNumberOfConnections.setText(String.valueOf(numberOfConnections));
-        numberToDisplay.setMax(loadAmountOfData.getObjAmountOfData().size());
+        numberToDisplay.setMax(managingAmountOfData.getLoadAmountOfData().getObjAmountOfData().size());
     }
 
     private void setUpChartData(){

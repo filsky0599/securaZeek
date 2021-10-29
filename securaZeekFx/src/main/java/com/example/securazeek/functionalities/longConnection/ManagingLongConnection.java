@@ -25,8 +25,8 @@ public class ManagingLongConnection implements LongConnection{
     private Map<String, Integer> countProtocol;
     private Map<String, Integer> countService;
 
-    public ManagingLongConnection(LoadLongestConnection loadLongestConnection) {
-        this.loadLongestConnection = loadLongestConnection;
+    public ManagingLongConnection() {
+        loadLongestConnection = new LoadLongestConnection();
         obsListDisplay = FXCollections.observableArrayList();
         obsListIp = FXCollections.observableArrayList();
         obsListDuration = FXCollections.observableArrayList();
@@ -199,6 +199,10 @@ public class ManagingLongConnection implements LongConnection{
             Integer count = countService.get(l.getService());
             countService.put(l.getService(), (count == null) ? 1 : count + 1);
         }
+    }
+
+    public LoadLongestConnection getLoadLongestConnection() {
+        return loadLongestConnection;
     }
 
     public ObservableList<ObjLongestConnection> getObsListDisplay() {

@@ -21,8 +21,8 @@ public class ManagingAmountOfData implements Beacons {
     private Map<String, Double> dataChart;
     private Map<String, Integer> numberChart;
 
-    public ManagingAmountOfData(LoadAmountOfData loadAmountOfData) {
-        this.loadAmountOfData = loadAmountOfData;
+    public ManagingAmountOfData() {
+        loadAmountOfData = new LoadAmountOfData();
         obsListDisplay = FXCollections.observableArrayList();
         obsListIp = FXCollections.observableArrayList();
         obsListData = FXCollections.observableArrayList();
@@ -144,6 +144,10 @@ public class ManagingAmountOfData implements Beacons {
                 numberChart.put(l.getSourceIp(), l.getNumberOfConnections());
             }
         }
+    }
+
+    public LoadAmountOfData getLoadAmountOfData() {
+        return loadAmountOfData;
     }
 
     public ObservableList<ObjAmountOfData> getObsListDisplay() {

@@ -9,14 +9,18 @@ public class ManagingFileInformation implements LoadingFile {
 
     private LoadFileInformation loadFileInformation;
 
-    public ManagingFileInformation(LoadFileInformation loadFileInformation) {
-        this.loadFileInformation = loadFileInformation;
+    public ManagingFileInformation() {
+        loadFileInformation = new LoadFileInformation();
     }
 
     @Override
     public void openFile(String path) throws FileNotFoundException, ReadFileException {
         loadFileInformation.setFilePath(path);
         loadFileInformation.loadFile();
+    }
+
+    public LoadFileInformation getLoadFileInformation() {
+        return loadFileInformation;
     }
 
     public String printFile(){

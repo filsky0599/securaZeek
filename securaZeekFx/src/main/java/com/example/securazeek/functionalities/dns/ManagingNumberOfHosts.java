@@ -19,8 +19,8 @@ public class ManagingNumberOfHosts implements Dns {
     private ObservableList<ObjNumberOfHosts> obsListHosts;
     private Map<String, Integer> mapNumberHosts;
 
-    public ManagingNumberOfHosts(LoadNumberOfHosts loadNumberOfHosts) {
-        this.loadNumberOfHosts = loadNumberOfHosts;
+    public ManagingNumberOfHosts() {
+        loadNumberOfHosts = new LoadNumberOfHosts();
         obsListDisplay = FXCollections.observableArrayList();
         obsListNumberHosts = FXCollections.observableArrayList();
         obsListHosts = FXCollections.observableArrayList();
@@ -81,6 +81,10 @@ public class ManagingNumberOfHosts implements Dns {
         for(int x = 0; x < loadNumberOfHosts.getObjNumberOfHosts().size(); x++){
             mapNumberHosts.put(loadNumberOfHosts.getObjNumberOfHosts().get(x).getHostsNames(), loadNumberOfHosts.getObjNumberOfHosts().get(x).getNumberOfHosts());
         }
+    }
+
+    public LoadNumberOfHosts getLoadNumberOfHosts() {
+        return loadNumberOfHosts;
     }
 
     public ObservableList<ObjNumberOfHosts> getObsListDisplay() {
