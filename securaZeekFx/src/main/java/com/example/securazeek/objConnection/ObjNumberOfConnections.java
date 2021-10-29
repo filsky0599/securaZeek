@@ -1,6 +1,6 @@
 package com.example.securazeek.objConnection;
 
-public class ObjNumberOfConnections extends AbsObjconnection{
+public class ObjNumberOfConnections extends AbsObjConnection {
 
     private int numberOfConnections;
 

@@ -1,6 +1,6 @@
 package com.example.securazeek.objConnection;
 
-public class ObjAbsLongestConnection extends AbsObjconnection{
+public class ObjAbsLongestConnection extends AbsObjConnection {
 
     private double duration;
 
