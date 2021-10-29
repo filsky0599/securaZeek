@@ -90,40 +90,5 @@ class ManagingLongConnectionTest {
     @Test
     void getLoadLongestConnection() {
     }
-
-    @Test
-    void getObsListDisplay() {
-    }
-
-    @Test
-    void getObsListIp() {
-    }
-
-    @Test
-    void getObsListDuration() {
-    }
-
-    @Test
-    void getObsListPort() {
-    }
-
-    @Test
-    void getObsListProtocol() {
-    }
-
-    @Test
-    void getObsListService() {
-    }
-
-    @Test
-    void getCountPort() {
-    }
-
-    @Test
-    void getCountProtocol() {
-    }
-
-    @Test
-    void getCountService() {
-    }
+    
 }
