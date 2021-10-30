@@ -4,7 +4,7 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.objConnection.ObjAbsLongestConnection;
 import com.example.securazeek.exceptions.ReadFileException;
-import com.example.securazeek.functionalities.longConnection.ManagingAbsLongestConnection;
+import com.example.securazeek.functionalities.connection.ManagingAbsLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

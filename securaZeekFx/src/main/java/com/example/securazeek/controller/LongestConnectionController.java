@@ -4,7 +4,7 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
-import com.example.securazeek.functionalities.longConnection.ManagingLongConnection;
+import com.example.securazeek.functionalities.connection.ManagingLongestConnection;
 import com.example.securazeek.objConnection.ObjLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
 
 public class LongestConnectionController {
 
-    private ManagingLongConnection managingLongConnection;
+    private ManagingLongestConnection managingLongestConnection;
 
     @FXML
     private Button loadFile;
@@ -125,7 +125,7 @@ public class LongestConnectionController {
     private CheckBox reverseDisplayIpFilter;
 
     public LongestConnectionController() {
-        this.managingLongConnection = new ManagingLongConnection();
+        this.managingLongestConnection = new ManagingLongestConnection();
     }
 
     @FXML
@@ -269,8 +269,8 @@ public class LongestConnectionController {
             throw new WrongFileChosen();
         }
 
-        managingLongConnection.openFile(path);
-        int numberOfConnections = managingLongConnection.getLoadLongestConnection().getObjLongestConnection().size();
+        managingLongestConnection.openFile(path);
+        int numberOfConnections = managingLongestConnection.getLoadLongestConnection().getObjLongestConnection().size();
         displayNumberOfConnections.setText(String.valueOf(numberOfConnections));
     }
 
@@ -298,8 +298,8 @@ public class LongestConnectionController {
 
     private void display() throws TooManyConnections {
         int numberOfConnections = Integer.parseInt(connectionsToDisplay.getText());
-        managingLongConnection.displayAllConnections(numberOfConnections);
-        connectionsTable.setItems(managingLongConnection.getObsListDisplay());
+        managingLongestConnection.displayAllConnections(numberOfConnections);
+        connectionsTable.setItems(managingLongestConnection.getObsListDisplay());
     }
 
     private void displayIp(){
@@ -307,60 +307,60 @@ public class LongestConnectionController {
         String sourceIp = sourceIpText.getText();
         String destinationIp = destinationIpText.getText();
         if(filterStatus){
-            managingLongConnection.displayConnectionsByIpReverse(sourceIp, destinationIp);
+            managingLongestConnection.displayConnectionsByIpReverse(sourceIp, destinationIp);
         }else {
-            managingLongConnection.displayConnectionsByIp(sourceIp, destinationIp);
+            managingLongestConnection.displayConnectionsByIp(sourceIp, destinationIp);
         }
-        connectionsTable.setItems(managingLongConnection.getObsListIp());
+        connectionsTable.setItems(managingLongestConnection.getObsListIp());
     }
 
     private void displayDuration() throws NotValidInsertion {
         boolean filterStatus = reverseDurationFilter.isSelected();
-        managingLongConnection.displayConnectionsByDuration(Double.parseDouble(durationSetter.getText()), filterStatus);
-        connectionsTable.setItems(managingLongConnection.getObsListDuration());
+        managingLongestConnection.displayConnectionsByDuration(Double.parseDouble(durationSetter.getText()), filterStatus);
+        connectionsTable.setItems(managingLongestConnection.getObsListDuration());
     }
 
     private void displayPort() throws NotValidInsertion {
         boolean filterStatus = reversePortProtoServiceFilter.isSelected();
-        managingLongConnection.displayConnectionsByPort(Integer.parseInt(portSetter.getText()), filterStatus);
-        connectionsTable.setItems(managingLongConnection.getObsListPort());
+        managingLongestConnection.displayConnectionsByPort(Integer.parseInt(portSetter.getText()), filterStatus);
+        connectionsTable.setItems(managingLongestConnection.getObsListPort());
     }
 
     private void displayProtocol(){
         boolean filterStatus = reversePortProtoServiceFilter.isSelected();
-        managingLongConnection.displayConnectionsByProtocol(protocolSetter.getText(), filterStatus);
-        connectionsTable.setItems(managingLongConnection.getObsListProtocol());
+        managingLongestConnection.displayConnectionsByProtocol(protocolSetter.getText(), filterStatus);
+        connectionsTable.setItems(managingLongestConnection.getObsListProtocol());
     }
 
     private void displayService(){
         boolean filterStatus = reversePortProtoServiceFilter.isSelected();
-        managingLongConnection.displayConnectionsByService(serviceSetter.getText(), filterStatus);
-        connectionsTable.setItems(managingLongConnection.getObsListService());
+        managingLongestConnection.displayConnectionsByService(serviceSetter.getText(), filterStatus);
+        connectionsTable.setItems(managingLongestConnection.getObsListService());
     }
 
     private void setInfoBox(){
         informationTextArea.clear();
-        informationTextArea.setText("The duration average is: " + String.format("%.2f", managingLongConnection.connectionsAverage()));
+        informationTextArea.setText("The duration average is: " + String.format("%.2f", managingLongestConnection.connectionsAverage()));
     }
 
     private void displayPortsPlot(){
-        managingLongConnection.countPortOccurrences();
+        managingLongestConnection.countPortOccurrences();
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-        managingLongConnection.getCountPort().forEach((key, value) -> pieChartData.add(new PieChart.Data(String.valueOf(key), value)));
+        managingLongestConnection.getCountPort().forEach((key, value) -> pieChartData.add(new PieChart.Data(String.valueOf(key), value)));
         portsPlot.setData(pieChartData);
     }
 
     private void displayProtocolPlot(){
-        managingLongConnection.countProtocolOccurrences();
+        managingLongestConnection.countProtocolOccurrences();
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-        managingLongConnection.getCountProtocol().forEach((key, value) -> pieChartData.add(new PieChart.Data(key, value)));
+        managingLongestConnection.getCountProtocol().forEach((key, value) -> pieChartData.add(new PieChart.Data(key, value)));
         protocolPlots.setData(pieChartData);
     }
 
     private void displayServicePlot(){
-        managingLongConnection.countServiceOccurrences();
+        managingLongestConnection.countServiceOccurrences();
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-        managingLongConnection.getCountService().forEach((key, value) -> pieChartData.add(new PieChart.Data(key, value)));
+        managingLongestConnection.getCountService().forEach((key, value) -> pieChartData.add(new PieChart.Data(key, value)));
         servicePlots.setData(pieChartData);
     }
 

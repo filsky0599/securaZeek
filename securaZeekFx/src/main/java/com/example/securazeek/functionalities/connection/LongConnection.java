@@ -1,4 +1,4 @@
-package com.example.securazeek.functionalities.longConnection;
+package com.example.securazeek.functionalities.connection;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;

@@ -1,4 +1,4 @@
-package com.example.securazeek.functionalities.longConnection;
+package com.example.securazeek.functionalities.connection;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ManagingLongConnection implements LongConnection{
+public class ManagingLongestConnection implements LongConnection{
 
     private LoadLongestConnection loadLongestConnection;
     private ObservableList<ObjLongestConnection> obsListDisplay;
@@ -25,7 +25,7 @@ public class ManagingLongConnection implements LongConnection{
     private Map<String, Integer> countProtocol;
     private Map<String, Integer> countService;
 
-    public ManagingLongConnection() {
+    public ManagingLongestConnection() {
         loadLongestConnection = new LoadLongestConnection();
         obsListDisplay = FXCollections.observableArrayList();
         obsListIp = FXCollections.observableArrayList();
