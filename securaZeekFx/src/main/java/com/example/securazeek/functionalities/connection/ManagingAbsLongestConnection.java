@@ -14,14 +14,14 @@ import java.util.Map;
 public class ManagingAbsLongestConnection implements LongConnection{
 
     private LoadAbsLongestConnection loadAbsLongestConnection;
-    private ObservableList<ObjAbsLongestConnection> obsList;
+    private ObservableList<ObjAbsLongestConnection> obsListDisplay;
     private ObservableList<ObjAbsLongestConnection> obsListByIp;
     private ObservableList<ObjAbsLongestConnection> obsListDuration;
     private Map<String, Integer> countConnections;
 
     public ManagingAbsLongestConnection() {
         loadAbsLongestConnection = new LoadAbsLongestConnection();
-        obsList = FXCollections.observableArrayList();
+        obsListDisplay = FXCollections.observableArrayList();
         obsListByIp = FXCollections.observableArrayList();
         obsListDuration = FXCollections.observableArrayList();
         countConnections = new HashMap<>();
@@ -36,7 +36,7 @@ public class ManagingAbsLongestConnection implements LongConnection{
     @Override
     public void displayAllConnections(int connectionsDisplayed) {
         for(int x = 0; x < connectionsDisplayed; x++){
-                obsList.add(loadAbsLongestConnection.getObjAbsLongestConnections().get(x));
+                obsListDisplay.add(loadAbsLongestConnection.getObjAbsLongestConnections().get(x));
         }
     }
 
@@ -126,8 +126,8 @@ public class ManagingAbsLongestConnection implements LongConnection{
         return loadAbsLongestConnection;
     }
 
-    public ObservableList<ObjAbsLongestConnection> getObsList() {
-        return obsList;
+    public ObservableList<ObjAbsLongestConnection> getObsListDisplay() {
+        return obsListDisplay;
     }
 
     public ObservableList<ObjAbsLongestConnection> getObsListByIp() {

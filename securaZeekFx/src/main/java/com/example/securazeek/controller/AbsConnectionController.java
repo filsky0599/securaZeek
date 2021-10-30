@@ -181,7 +181,7 @@ public class AbsConnectionController {
 
     private void display(){
         managingAbsLongestConnection.displayAllConnections((int) numberToDisplay.getValue());
-        connectionsTable.setItems(managingAbsLongestConnection.getObsList());
+        connectionsTable.setItems(managingAbsLongestConnection.getObsListDisplay());
     }
 
     private void lFile() throws FileNotFoundException, ReadFileException, WrongFileChosen {

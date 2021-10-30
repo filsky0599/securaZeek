@@ -27,6 +27,7 @@ class ManagingLongestConnectionTest {
     void openFile() throws FileNotFoundException, ReadFileException {
         managingLongestConnection.getLoadLongestConnection().setFilePath("ciao/Giulia");
         assertEquals("ciao/Giulia", managingLongestConnection.getLoadLongestConnection().getFilePath());
+
         managingLongestConnection.getLoadLongestConnection().setFilePath(path);
         assertTrue(managingLongestConnection.getLoadLongestConnection().loadFile());
     }
@@ -67,10 +68,6 @@ class ManagingLongestConnectionTest {
         managingLongestConnection.getObsListIp().clear();
         managingLongestConnection.displayConnectionsByIpReverse("192.168.99.51", "167.71.97.235");
         assertTrue(managingLongestConnection.getObsListIp().size() > 0);
-
-        managingLongestConnection.getObsListIp().clear();
-        managingLongestConnection.displayConnectionsByIpReverse("", "");
-        assertEquals(managingLongestConnection.getObsListIp().size(), managingLongestConnection.getObsListIp().size());
     }
 
     @Test
