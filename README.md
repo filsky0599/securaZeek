@@ -8,12 +8,6 @@ La cartella `Documenti di ricerca` contiene varie informazioni trovate durante l
 
 La cartella `Script` contiene lo script bash usato per fare successive elaborazioni sui file Zeek. L'output di questo script sono dei file di testo che vengono passati successivamente all'applicazione SecuraZeek per un ulteriore analisi.
 
-`SecuraZeekFxv` contiene il codice sorgente dell'applicazione scritta in Java 17 e JavaFx.
-
-`Eseguibile Mac` contiene l'appicazione compilata e lo scipt per lanciare l'eseguibile da terminale.
-
-`Eseguibile UNIX` contiene l'appicazione compilata e lo scipt per lanciare l'eseguibile da terminale.
-
 ## Istruzioni per l'esecuzione
 
 •Aprire la cartella `bin` all'interno di `Eseguibile Mac` nel terminale.
