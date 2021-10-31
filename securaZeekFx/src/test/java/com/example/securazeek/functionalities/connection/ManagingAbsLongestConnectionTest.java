@@ -2,6 +2,7 @@ package com.example.securazeek.functionalities.connection;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadAbsLongestConnection;
 import javafx.collections.FXCollections;
 import org.junit.jupiter.api.Test;
@@ -32,7 +33,7 @@ class ManagingAbsLongestConnectionTest {
     }
 
     @Test
-    void displayAllConnections() {
+    void displayAllConnections() throws TooManyConnections {
         managingAbsLongestConnection.displayAllConnections(managingAbsLongestConnection.getLoadAbsLongestConnection().getObjAbsLongestConnections().size());
         assertTrue(managingAbsLongestConnection.getObsListDisplay().size() > 0);
     }

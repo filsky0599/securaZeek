@@ -2,6 +2,7 @@ package com.example.securazeek.controller;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.beacons.ManagingAmountOfData;
 import com.example.securazeek.objConnection.ObjAmountOfData;
@@ -119,7 +120,7 @@ public class AmountOfDataController {
     }
 
     @FXML
-    void displayClick(MouseEvent event) {
+    void displayClick(MouseEvent event) throws TooManyConnections {
         if(event.getButton() == MouseButton.PRIMARY){
             initializeTable();
             display();
@@ -127,7 +128,7 @@ public class AmountOfDataController {
     }
 
     @FXML
-    void displayPressed(KeyEvent event) {
+    void displayPressed(KeyEvent event) throws TooManyConnections {
         if (event.getCode() == KeyCode.ENTER){
             initializeTable();
             display();
@@ -208,7 +209,7 @@ public class AmountOfDataController {
         connectionsTable.setItems(managingAmountOfData.getObsListIp());
     }
 
-    private void display() {
+    private void display() throws TooManyConnections {
         managingAmountOfData.displayAllConnections((int) numberToDisplay.getValue());
         connectionsTable.setItems(managingAmountOfData.getObsListDisplay());
     }

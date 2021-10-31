@@ -1,6 +1,7 @@
 package com.example.securazeek.controller;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
+import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.objConnection.ObjAbsLongestConnection;
 import com.example.securazeek.exceptions.ReadFileException;
@@ -119,7 +120,7 @@ public class AbsConnectionController {
     }
 
     @FXML
-    void displayClick(MouseEvent event) {
+    void displayClick(MouseEvent event) throws TooManyConnections {
         if(event.getButton() == MouseButton.PRIMARY){
             initializeTable();
             display();
@@ -127,7 +128,7 @@ public class AbsConnectionController {
     }
 
     @FXML
-    void displayPressed(KeyEvent event) {
+    void displayPressed(KeyEvent event) throws TooManyConnections {
         if(event.getCode() == KeyCode.ENTER){
             initializeTable();
             display();
@@ -179,7 +180,7 @@ public class AbsConnectionController {
         duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
     }
 
-    private void display(){
+    private void display() throws TooManyConnections {
         managingAbsLongestConnection.displayAllConnections((int) numberToDisplay.getValue());
         connectionsTable.setItems(managingAbsLongestConnection.getObsListDisplay());
     }

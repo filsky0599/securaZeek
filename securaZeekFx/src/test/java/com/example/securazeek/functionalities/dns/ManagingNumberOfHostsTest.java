@@ -2,6 +2,7 @@ package com.example.securazeek.functionalities.dns;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
 import javafx.collections.FXCollections;
 import org.junit.jupiter.api.Test;
@@ -32,7 +33,7 @@ class ManagingNumberOfHostsTest {
     }
 
     @Test
-    void displayAllHosts() {
+    void displayAllHosts() throws TooManyConnections {
         managingNumberOfHosts.displayAllHosts(managingNumberOfHosts.getLoadNumberOfHosts().getObjNumberOfHosts().size());
         assertTrue(managingNumberOfHosts.getObsListDisplay().size() > 0);
     }

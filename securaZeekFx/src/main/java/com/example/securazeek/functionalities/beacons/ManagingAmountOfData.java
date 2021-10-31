@@ -2,6 +2,7 @@ package com.example.securazeek.functionalities.beacons;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadAmountOfData;
 import com.example.securazeek.objConnection.ObjAmountOfData;
 import javafx.collections.FXCollections;
@@ -38,9 +39,13 @@ public class ManagingAmountOfData implements Beacons {
     }
 
     @Override
-    public void displayAllConnections(int connectionsDisplayed) {
-        for(int x = 0; x < connectionsDisplayed; x++){
-            obsListDisplay.add(loadAmountOfData.getObjAmountOfData().get(x));
+    public void displayAllConnections(int connectionsDisplayed) throws TooManyConnections {
+        if(connectionsDisplayed > loadAmountOfData.getObjAmountOfData().size()){
+            throw new TooManyConnections();
+        }else {
+            for(int x = 0; x < connectionsDisplayed; x++){
+                obsListDisplay.add(loadAmountOfData.getObjAmountOfData().get(x));
+            }
         }
     }
 

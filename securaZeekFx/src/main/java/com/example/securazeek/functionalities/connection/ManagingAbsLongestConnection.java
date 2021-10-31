@@ -2,6 +2,7 @@ package com.example.securazeek.functionalities.connection;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadAbsLongestConnection;
 import com.example.securazeek.objConnection.ObjAbsLongestConnection;
 import javafx.collections.FXCollections;
@@ -34,9 +35,13 @@ public class ManagingAbsLongestConnection implements LongConnection{
     }
 
     @Override
-    public void displayAllConnections(int connectionsDisplayed) {
-        for(int x = 0; x < connectionsDisplayed; x++){
+    public void displayAllConnections(int connectionsDisplayed) throws TooManyConnections {
+        if(connectionsDisplayed > loadAbsLongestConnection.getObjAbsLongestConnections().size()){
+            throw new TooManyConnections();
+        }else {
+            for(int x = 0; x < connectionsDisplayed; x++){
                 obsListDisplay.add(loadAbsLongestConnection.getObjAbsLongestConnections().get(x));
+            }
         }
     }
 

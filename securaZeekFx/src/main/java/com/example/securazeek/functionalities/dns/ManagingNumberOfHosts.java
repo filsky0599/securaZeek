@@ -2,6 +2,7 @@ package com.example.securazeek.functionalities.dns;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.ReadFileException;
+import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
 import com.example.securazeek.objConnection.ObjNumberOfHosts;
 import javafx.collections.FXCollections;
@@ -34,7 +35,10 @@ public class ManagingNumberOfHosts implements Dns {
     }
 
     @Override
-    public void displayAllHosts(int hostsDisplayed) {
+    public void displayAllHosts(int hostsDisplayed) throws TooManyConnections {
+        if(hostsDisplayed > loadNumberOfHosts.getObjNumberOfHosts().size()){
+            throw new TooManyConnections();
+        }
         for(int x = 0; x < hostsDisplayed; x++){
             obsListDisplay.add(loadNumberOfHosts.getObjNumberOfHosts().get(x));
         }
