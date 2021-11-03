@@ -1,7 +1,6 @@
 package com.example.securazeek.controller;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.connection.ManagingLongestConnection;
@@ -19,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class LongestConnectionController {
 
@@ -225,7 +224,7 @@ public class LongestConnectionController {
     }
 
     @FXML
-    public void loadFilePress(KeyEvent event) throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    public void loadFilePress(KeyEvent event) throws WrongFileChosen, IOException {
         if(event.getCode() == KeyCode.ENTER){
             lFile();
             unlockButtons();
@@ -237,7 +236,7 @@ public class LongestConnectionController {
     }
 
     @FXML
-    public void loadFileClick(MouseEvent event) throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    public void loadFileClick(MouseEvent event) throws WrongFileChosen, IOException {
         if(event.getButton() == MouseButton.PRIMARY){
             lFile();
             unlockButtons();
@@ -248,7 +247,7 @@ public class LongestConnectionController {
         }
     }
 
-    private void lFile() throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    private void lFile() throws WrongFileChosen, IOException {
         String path;
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("LongestConnections file", "*.txt"));

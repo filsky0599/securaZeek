@@ -1,10 +1,9 @@
 package com.example.securazeek.loadingFiles;
 
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.objConnection.ObjLongestConnection;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +21,7 @@ class LoadLongestConnectionTest {
     }
 
     @Test
-    void loadFile() throws FileNotFoundException, ReadFileException {
+    void loadFile() throws IOException {
         assertTrue(loadLongestConnection.loadFile());
     }
 

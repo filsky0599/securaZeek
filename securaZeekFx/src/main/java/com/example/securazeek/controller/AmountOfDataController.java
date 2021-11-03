@@ -1,7 +1,6 @@
 package com.example.securazeek.controller;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.beacons.ManagingAmountOfData;
@@ -20,7 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class AmountOfDataController {
 
@@ -100,7 +99,7 @@ public class AmountOfDataController {
     }
 
     @FXML
-    void loadFileClick(MouseEvent event) throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    void loadFileClick(MouseEvent event) throws WrongFileChosen, IOException {
         if(event.getButton() == MouseButton.PRIMARY){
             lFile();
             unlockButtons();
@@ -110,7 +109,7 @@ public class AmountOfDataController {
     }
 
     @FXML
-    void loadFilePress(KeyEvent event) throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    void loadFilePress(KeyEvent event) throws WrongFileChosen, IOException {
         if(event.getCode() == KeyCode.ENTER){
             lFile();
             unlockButtons();
@@ -231,7 +230,7 @@ public class AmountOfDataController {
         reverseDisplayIpFilter.setDisable(false);
     }
 
-    private void lFile() throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    private void lFile() throws WrongFileChosen, IOException {
         String path;
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("AmountOfData files", "*.txt"));

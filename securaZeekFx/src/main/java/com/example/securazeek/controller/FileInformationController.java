@@ -1,6 +1,5 @@
 package com.example.securazeek.controller;
 
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.fileInformation.ManagingFileInformation;
 import javafx.fxml.FXML;
@@ -10,7 +9,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class FileInformationController {
 
@@ -18,7 +17,7 @@ public class FileInformationController {
     private TextArea fileInformationPrint;
 
     @FXML
-    void printValue(KeyEvent event) throws FileNotFoundException, ReadFileException, WrongFileChosen {
+    void printValue(KeyEvent event) throws IOException, WrongFileChosen {
         if(event.getCode() == KeyCode.ENTER){
             String path;
             FileChooser fileChooser = new FileChooser();

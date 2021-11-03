@@ -1,14 +1,13 @@
 package com.example.securazeek.functionalities.connection;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadLongestConnection;
 import com.example.securazeek.objConnection.ObjLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +38,7 @@ public class ManagingLongestConnection implements LongConnection{
     }
 
     @Override
-    public void openFile(String path) throws FileNotFoundException, ReadFileException {
+    public void openFile(String path) throws IOException {
         loadLongestConnection.setFilePath(path);
         loadLongestConnection.loadFile();
     }

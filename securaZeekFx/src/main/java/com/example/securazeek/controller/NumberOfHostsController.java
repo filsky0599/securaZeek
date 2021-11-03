@@ -1,7 +1,6 @@
 package com.example.securazeek.controller;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.dns.ManagingNumberOfHosts;
@@ -20,7 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class NumberOfHostsController {
 
@@ -76,7 +75,7 @@ public class NumberOfHostsController {
     }
 
     @FXML
-    void loadFileClick(MouseEvent event) throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    void loadFileClick(MouseEvent event) throws WrongFileChosen, IOException {
         if(event.getButton() == MouseButton.PRIMARY){
             lFile();
             unlockButtons();
@@ -85,7 +84,7 @@ public class NumberOfHostsController {
     }
 
     @FXML
-    void loadFilePress(KeyEvent event) throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    void loadFilePress(KeyEvent event) throws WrongFileChosen, IOException {
         if(event.getCode() == KeyCode.ENTER){
             lFile();
             unlockButtons();
@@ -171,7 +170,7 @@ public class NumberOfHostsController {
         reverseNumberHostNameFilter.setDisable(false);
     }
 
-    private void lFile() throws WrongFileChosen, FileNotFoundException, ReadFileException {
+    private void lFile() throws WrongFileChosen, IOException {
         String path;
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("NumberOfHosts files", "*.txt"));

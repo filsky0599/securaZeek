@@ -1,13 +1,12 @@
 package com.example.securazeek.functionalities.connection;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadLongestConnection;
 import javafx.collections.FXCollections;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,14 +16,14 @@ class ManagingLongestConnectionTest {
     private ManagingLongestConnection managingLongestConnection;
     private final String path = "/Users/filipporognoni/Documents/Programmazione/Progetti Git/securaZeek/DatasetEsempio/Results/LongestConnection.txt";
 
-    public ManagingLongestConnectionTest() throws FileNotFoundException, ReadFileException {
+    public ManagingLongestConnectionTest() throws IOException {
         managingLongestConnection = new ManagingLongestConnection();
         managingLongestConnection.getLoadLongestConnection().setFilePath(path);
         managingLongestConnection.getLoadLongestConnection().loadFile();
     }
 
     @Test
-    void openFile() throws FileNotFoundException, ReadFileException {
+    void openFile() throws IOException {
         managingLongestConnection.getLoadLongestConnection().setFilePath("ciao/Giulia");
         assertEquals("ciao/Giulia", managingLongestConnection.getLoadLongestConnection().getFilePath());
 

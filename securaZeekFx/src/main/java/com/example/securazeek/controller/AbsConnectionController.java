@@ -4,7 +4,6 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.objConnection.ObjAbsLongestConnection;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.functionalities.connection.ManagingAbsLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class AbsConnectionController {
 
@@ -136,7 +135,7 @@ public class AbsConnectionController {
     }
 
     @FXML
-    void loadFileClick(MouseEvent event) throws FileNotFoundException, ReadFileException, WrongFileChosen {
+    void loadFileClick(MouseEvent event) throws IOException, WrongFileChosen {
         if(event.getButton() == MouseButton.PRIMARY){
             lFile();
             unlockButtons();
@@ -146,7 +145,7 @@ public class AbsConnectionController {
     }
 
     @FXML
-    void loadFilePress(KeyEvent event) throws FileNotFoundException, ReadFileException, WrongFileChosen {
+    void loadFilePress(KeyEvent event) throws IOException, WrongFileChosen {
         if(event.getCode() == KeyCode.ENTER){
             lFile();
             unlockButtons();
@@ -185,7 +184,7 @@ public class AbsConnectionController {
         connectionsTable.setItems(managingAbsLongestConnection.getObsListDisplay());
     }
 
-    private void lFile() throws FileNotFoundException, ReadFileException, WrongFileChosen {
+    private void lFile() throws IOException, WrongFileChosen {
         String path;
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("AbsLongestConnection file", "*.txt"));

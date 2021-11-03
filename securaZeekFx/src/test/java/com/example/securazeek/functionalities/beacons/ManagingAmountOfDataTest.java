@@ -1,13 +1,12 @@
 package com.example.securazeek.functionalities.beacons;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadAmountOfData;
 import javafx.collections.FXCollections;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,14 +16,14 @@ class ManagingAmountOfDataTest {
     private ManagingAmountOfData managingAmountOfData;
     private final String path = "/Users/filipporognoni/Documents/Programmazione/Progetti Git/securaZeek/DatasetEsempio/Results/AmountOfData.txt";
 
-    public ManagingAmountOfDataTest() throws FileNotFoundException, ReadFileException {
+    public ManagingAmountOfDataTest() throws IOException {
         managingAmountOfData = new ManagingAmountOfData();
         managingAmountOfData.getLoadAmountOfData().setFilePath(path);
         managingAmountOfData.getLoadAmountOfData().loadFile();
     }
 
     @Test
-    void openFile() throws FileNotFoundException, ReadFileException {
+    void openFile() throws IOException {
         managingAmountOfData.getLoadAmountOfData().setFilePath("ciao/prova");
         assertEquals("ciao/prova", managingAmountOfData.getLoadAmountOfData().getFilePath());
 

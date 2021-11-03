@@ -1,14 +1,13 @@
 package com.example.securazeek.functionalities.beacons;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadNumberOfConnections;
 import com.example.securazeek.objConnection.ObjNumberOfConnections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +28,7 @@ public class ManagingNumberOfConnections implements Beacons {
     }
 
     @Override
-    public void openFile(String path) throws FileNotFoundException, ReadFileException {
+    public void openFile(String path) throws IOException {
         loadNumberOfConnections.setFilePath(path);
         loadNumberOfConnections.loadFile();
     }

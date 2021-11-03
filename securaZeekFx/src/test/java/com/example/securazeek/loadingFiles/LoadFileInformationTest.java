@@ -1,9 +1,8 @@
 package com.example.securazeek.loadingFiles;
 
-import com.example.securazeek.exceptions.ReadFileException;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +17,7 @@ class LoadFileInformationTest {
     }
 
     @Test
-    void loadFile() throws FileNotFoundException, ReadFileException {
+    void loadFile() throws IOException {
         assertTrue(loadFileInformation.loadFile());
     }
 

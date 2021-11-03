@@ -1,13 +1,12 @@
 package com.example.securazeek.functionalities.dns;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
 import javafx.collections.FXCollections;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,14 +16,14 @@ class ManagingNumberOfHostsTest {
     private ManagingNumberOfHosts managingNumberOfHosts;
     private final String path = "/Users/filipporognoni/Documents/Programmazione/Progetti Git/securaZeek/DatasetEsempio/Results/NumberOfHosts.txt";
 
-    public ManagingNumberOfHostsTest() throws FileNotFoundException, ReadFileException {
+    public ManagingNumberOfHostsTest() throws IOException {
         managingNumberOfHosts = new ManagingNumberOfHosts();
         managingNumberOfHosts.getLoadNumberOfHosts().setFilePath(path);
         managingNumberOfHosts.getLoadNumberOfHosts().loadFile();
     }
 
     @Test
-    void openFile() throws FileNotFoundException, ReadFileException {
+    void openFile() throws IOException {
         managingNumberOfHosts.getLoadNumberOfHosts().setFilePath("ciao/prova");
         assertEquals("ciao/prova", managingNumberOfHosts.getLoadNumberOfHosts().getFilePath());
 

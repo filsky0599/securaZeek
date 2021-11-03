@@ -1,9 +1,8 @@
 package com.example.securazeek.functionalities.fileInformation;
 
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.loadingFiles.LoadFileInformation;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ManagingFileInformation implements LoadingFile {
 
@@ -14,7 +13,7 @@ public class ManagingFileInformation implements LoadingFile {
     }
 
     @Override
-    public void openFile(String path) throws FileNotFoundException, ReadFileException {
+    public void openFile(String path) throws IOException {
         loadFileInformation.setFilePath(path);
         loadFileInformation.loadFile();
     }

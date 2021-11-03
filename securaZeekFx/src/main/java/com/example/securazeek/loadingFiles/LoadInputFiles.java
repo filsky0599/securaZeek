@@ -1,12 +1,10 @@
 package com.example.securazeek.loadingFiles;
 
-import com.example.securazeek.exceptions.ReadFileException;
-
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public interface LoadInputFiles {
 
-    boolean loadFile() throws ReadFileException, FileNotFoundException;
+    boolean loadFile() throws IOException;
     String getFilePath();
     void setFilePath(String filePath);
 

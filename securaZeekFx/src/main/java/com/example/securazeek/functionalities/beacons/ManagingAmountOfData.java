@@ -1,14 +1,13 @@
 package com.example.securazeek.functionalities.beacons;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
-import com.example.securazeek.exceptions.ReadFileException;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadAmountOfData;
 import com.example.securazeek.objConnection.ObjAmountOfData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +32,7 @@ public class ManagingAmountOfData implements Beacons {
     }
 
     @Override
-    public void openFile(String path) throws FileNotFoundException, ReadFileException {
+    public void openFile(String path) throws IOException {
         loadAmountOfData.setFilePath(path);
         loadAmountOfData.loadFile();
     }

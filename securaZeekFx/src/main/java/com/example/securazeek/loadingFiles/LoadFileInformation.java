@@ -1,7 +1,5 @@
 package com.example.securazeek.loadingFiles;
 
-import com.example.securazeek.exceptions.ReadFileException;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,7 +14,7 @@ public class LoadFileInformation extends AbsLoadInputFile {
     }
 
     @Override
-    public boolean loadFile() throws ReadFileException, FileNotFoundException {
+    public boolean loadFile() throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(getFilePath()))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -30,7 +28,7 @@ public class LoadFileInformation extends AbsLoadInputFile {
         } catch (FileNotFoundException e) {
             throw new FileNotFoundException();
         } catch (IOException e) {
-            throw new ReadFileException();
+            throw new IOException();
         }
         return true;
     }
