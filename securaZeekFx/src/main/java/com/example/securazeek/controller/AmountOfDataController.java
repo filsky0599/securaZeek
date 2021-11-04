@@ -4,7 +4,7 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.beacons.ManagingAmountOfData;
-import com.example.securazeek.objConnection.ObjAmountOfData;
+import com.example.securazeek.objModel.ObjAmountOfData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

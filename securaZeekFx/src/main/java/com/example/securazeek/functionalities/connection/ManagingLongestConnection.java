@@ -3,7 +3,7 @@ package com.example.securazeek.functionalities.connection;
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadLongestConnection;
-import com.example.securazeek.objConnection.ObjLongestConnection;
+import com.example.securazeek.objModel.ObjLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

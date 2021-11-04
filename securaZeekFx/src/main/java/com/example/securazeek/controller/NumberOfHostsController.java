@@ -4,7 +4,7 @@ import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
 import com.example.securazeek.functionalities.dns.ManagingNumberOfHosts;
-import com.example.securazeek.objConnection.ObjNumberOfHosts;
+import com.example.securazeek.objModel.ObjNumberOfHosts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

@@ -3,7 +3,7 @@ package com.example.securazeek.functionalities.dns;
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadNumberOfHosts;
-import com.example.securazeek.objConnection.ObjNumberOfHosts;
+import com.example.securazeek.objModel.ObjNumberOfHosts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

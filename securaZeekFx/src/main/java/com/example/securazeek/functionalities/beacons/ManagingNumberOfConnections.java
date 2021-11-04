@@ -3,7 +3,7 @@ package com.example.securazeek.functionalities.beacons;
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.loadingFiles.LoadNumberOfConnections;
-import com.example.securazeek.objConnection.ObjNumberOfConnections;
+import com.example.securazeek.objModel.ObjNumberOfConnections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

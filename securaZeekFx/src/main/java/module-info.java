@@ -9,8 +9,8 @@ module com.example.securazeek {
     opens com.example.securazeek.loadingFiles to javafx.fxml;
     exports com.example.securazeek.controller;
     opens com.example.securazeek.controller to javafx.fxml;
-    exports com.example.securazeek.objConnection;
-    opens com.example.securazeek.objConnection to javafx.fxml;
+    exports com.example.securazeek.objModel;
+    opens com.example.securazeek.objModel to javafx.fxml;
     exports com.example.securazeek.exceptions;
     opens com.example.securazeek.exceptions to javafx.fxml;
 }

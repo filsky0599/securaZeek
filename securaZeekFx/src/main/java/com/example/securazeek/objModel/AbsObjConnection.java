@@ -1,4 +1,4 @@
-package com.example.securazeek.objConnection;
+package com.example.securazeek.objModel;
 
 public abstract class AbsObjConnection {
 

@@ -3,7 +3,7 @@ package com.example.securazeek.controller;
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
 import com.example.securazeek.exceptions.WrongFileChosen;
-import com.example.securazeek.objConnection.ObjAbsLongestConnection;
+import com.example.securazeek.objModel.ObjAbsLongestConnection;
 import com.example.securazeek.functionalities.connection.ManagingAbsLongestConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

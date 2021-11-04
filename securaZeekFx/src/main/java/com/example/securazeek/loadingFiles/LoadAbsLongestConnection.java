@@ -1,6 +1,6 @@
 package com.example.securazeek.loadingFiles;
 
-import com.example.securazeek.objConnection.ObjAbsLongestConnection;
+import com.example.securazeek.objModel.ObjAbsLongestConnection;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

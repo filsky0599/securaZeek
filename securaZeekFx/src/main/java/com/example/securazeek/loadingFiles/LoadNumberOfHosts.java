@@ -1,6 +1,6 @@
 package com.example.securazeek.loadingFiles;
 
-import com.example.securazeek.objConnection.ObjNumberOfHosts;
+import com.example.securazeek.objModel.ObjNumberOfHosts;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

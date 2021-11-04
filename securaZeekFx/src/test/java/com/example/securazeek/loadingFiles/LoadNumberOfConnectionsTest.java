@@ -1,6 +1,6 @@
 package com.example.securazeek.loadingFiles;
 
-import com.example.securazeek.objConnection.ObjNumberOfConnections;
+import com.example.securazeek.objModel.ObjNumberOfConnections;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
