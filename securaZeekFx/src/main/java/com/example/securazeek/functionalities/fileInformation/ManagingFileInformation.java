@@ -4,7 +4,7 @@ import com.example.securazeek.loadingFiles.LoadFileInformation;
 
 import java.io.IOException;
 
-public class ManagingFileInformation implements LoadingFile {
+public class ManagingFileInformation implements fileInformation {
 
     private LoadFileInformation loadFileInformation;
 

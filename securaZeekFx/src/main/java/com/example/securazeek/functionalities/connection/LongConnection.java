@@ -2,9 +2,9 @@ package com.example.securazeek.functionalities.connection;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
-import com.example.securazeek.functionalities.fileInformation.LoadingFile;
+import com.example.securazeek.functionalities.LoadFile;
 
-public interface LongConnection extends LoadingFile {
+public interface LongConnection extends LoadFile {
 
     void displayAllConnections(int connectionsDisplayed) throws TooManyConnections;
     void displayConnectionsByIp(String varSourceIp, String varDestIp) ;

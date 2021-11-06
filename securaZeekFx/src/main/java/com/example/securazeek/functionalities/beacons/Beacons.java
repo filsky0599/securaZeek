@@ -2,9 +2,9 @@ package com.example.securazeek.functionalities.beacons;
 
 import com.example.securazeek.exceptions.NotValidInsertion;
 import com.example.securazeek.exceptions.TooManyConnections;
-import com.example.securazeek.functionalities.fileInformation.LoadingFile;
+import com.example.securazeek.functionalities.LoadFile;
 
-public interface Beacons extends LoadingFile {
+public interface Beacons extends LoadFile {
 
     void displayAllConnections(int connectionsDisplayed) throws TooManyConnections;
     void displayConnectionsByIp(String varSourceIp, String varDestIp) ;
